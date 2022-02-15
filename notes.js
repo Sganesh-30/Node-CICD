@@ -9,7 +9,7 @@ var fetchNotes = () => {
   }
 }
 
-var addingNote = (title, body) => {
+var addNote = (title, body) => {
   var notes = fetchNotes();
 
   var note = {
@@ -30,7 +30,7 @@ var addingNote = (title, body) => {
   }
 }
 
-var removeNote = (title) => {
+var remove = (title) => {
   var notes = fetchNotes();
 
   var filteredNotes = notes.filter((note) => note.title !== title);
@@ -38,7 +38,7 @@ var removeNote = (title) => {
   fs.writeFileSync("notes.txt", JSON.stringify(filteredNotes));
 }
 
-var readNote = (title) => {
+var read = (title) => {
   var notes = fetchNotes();
 
   var filteredNotes = notes.filter((note) => note.title === title);
@@ -46,22 +46,22 @@ var readNote = (title) => {
   logNote(filteredNotes[0]);
 }
 
-var getAll = () => {
+var get = () => {
   var notes = fetchNotes();
 
   notes.forEach((note) => logNote(note));
 }
 
 var logNote = (note) => {
-  console.log("********************************");
+
   console.log(`Title: ${note.title}`);
   console.log(`Body: ${note.body}`);
 }
 
 
 module.exports = {
-  addingNote,
-  removeNote,
-  readNote,
-  getAll
+  addNote,
+  remove,
+  read,
+  get
 }
