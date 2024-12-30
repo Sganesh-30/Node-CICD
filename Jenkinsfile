@@ -14,7 +14,7 @@ pipeline {
 
         stage ('Print Node Version') {
             steps {
-                sh node -v
+                sh 'node -v'
             }
         }
     }
