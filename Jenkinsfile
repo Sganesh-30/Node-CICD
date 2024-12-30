@@ -12,9 +12,10 @@ pipeline {
             }           
         }
 
-        stage ('Print Node Version') {
+        stage ('Print Node and NPM Version') {
             steps {
                 sh 'node -v'
+                sh 'npm -v'
             }
         }
 
