@@ -23,17 +23,10 @@ pipeline {
             steps {
                sh 'npm install'
                sh 'npm install --save-dev mocha'
-               sh 'npm install --save-dev jest'
             }
         }
 
         stage ('Run Unit Test') {
-            steps {
-                sh 'npm test'
-            }
-        }
-
-        stage ('Run Unit Jest Test') {
             steps {
                 sh 'npm test'
             }

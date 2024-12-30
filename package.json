@@ -4,8 +4,7 @@
   "description": "",
   "main": "app.js",
   "scripts": {
-    "test": "mocha",
-    "test:unit": "jest"
+    "test": "mocha"
   },
   "author": "Gee",
   "license": "ISC",
