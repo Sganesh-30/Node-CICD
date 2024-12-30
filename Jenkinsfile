@@ -24,6 +24,12 @@ pipeline {
                sh 'npm install'
             }
         }
+
+        stage ('Run Unit Test') {
+            steps {
+                sh 'npm test'
+            }
+        }
     }
     
 }
