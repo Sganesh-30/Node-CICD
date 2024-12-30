@@ -7,7 +7,7 @@ pipeline {
 
     stages {
         stage ('Code Checkout') {
-            git branch: 'main', credentialsId: 'jenkins', url: 'https://github.com/Sganesh-30/Node-CICD.git'
+            checkout scm
         }
 
         stage ('Print Node Version') {
