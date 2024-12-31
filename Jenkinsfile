@@ -39,6 +39,14 @@ pipeline {
                 sh 'docker build -t sganesh3010/nodeapp:$GIT_COMMIT -f Dockerfile.node . '
             }
         }
+        stage ('Push Image to Hub') {
+            steps {
+                withDockerRegistry(credentialsId: 'DockerImageRegistry', url: 'https://index.docker.io/v1/') {
+                    sh 'docker push sganesh3010/nodeapp:$GIT_COMMIT'
+
+                }
+            }
+        }
     }
     
 }
