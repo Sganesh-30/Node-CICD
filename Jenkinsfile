@@ -49,7 +49,7 @@ pipeline {
         }
         stage ('Creating Container') {
             steps {
-                sh 'docker run -d --name nodeapp1 -p 3000:3000 sganesh3010/nodeapp:GIT_COMMIT'
+                sh 'docker run -d --name nodeapp1 -p 3000:3000 sganesh3010/nodeapp:01d48ca5615cab210ecf40932c53be88a34e87c6'
             }
         }
     }
