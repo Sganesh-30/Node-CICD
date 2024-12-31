@@ -1,7 +1,5 @@
 pipeline {
-    agent {
-        label 'DevServer'
-    }
+    agent any
 
     environment {
         DOCKER_HUB_CREDENTIALS='DockerImageRegistry'
