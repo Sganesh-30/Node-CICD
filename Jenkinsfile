@@ -32,7 +32,7 @@ pipeline {
         }
         stage ('Build Docker Image') {
             steps {
-                sh 'docker build -t nodeapp:v1 -f Dockerfile.node . '
+                sh 'docker build -t sganesh3010/nodeapp:$GIT_COMMIT . '
             }
         }
     }
