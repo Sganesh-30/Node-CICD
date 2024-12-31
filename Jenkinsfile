@@ -1,5 +1,7 @@
 pipeline {
-    agent any
+    agent {
+        label 'DevServer'
+    }
 
     tools {
         nodejs 'NodeJS-234'
