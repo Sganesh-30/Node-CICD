@@ -35,14 +35,12 @@ pipeline {
                 sh 'docker build -t sganesh3010/nodeapp:$GIT_COMMIT -f Dockerfile.node . '
             }
         }
-        stage ('Trivy Vulnerability Scanner') {
+        stage('Install Trivy') {
             steps {
                 sh '''
-                    trivy image sganesh3010/nodeapp:$GIT_COMMIT \
-                        --severity LOW,MEDIUM,HIGH \
-                        --exit-code 0 \
-                        --quiet \
-                        --format json -o trivy-image-results.json 
+                wget https://github.com/aquasecurity/trivy/releases/latest/download/trivy_0.45.0_linux_amd64.tar.gz
+                tar -xvzf trivy_0.45.0_linux_amd64.tar.gz
+                sudo mv trivy /usr/local/bin/
                 '''
             }
         }
