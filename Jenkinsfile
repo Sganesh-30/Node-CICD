@@ -35,7 +35,19 @@ pipeline {
                 sh 'docker build -t sganesh3010/nodeapp:$GIT_COMMIT -f Dockerfile.node . '
             }
         }
+        stage ('Trivy Vulnerability Scanner') {
+            steps {
+                sh '''
+                    trivy image sganesh3010/nodeapp:$GIT_COMMIT \
+                        --severity LOW,MEDIUM,HIGH \
+                        --exit-code 0 \
+                        --quiet \
+                        --format json -o trivy-image-results.json 
+                '''
+            }
+        }
     }
     
 }
+
 
