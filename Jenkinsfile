@@ -30,6 +30,11 @@ pipeline {
                 sh 'npm run test'
             }
         }
+        stage ('Build Docker Image') {
+            steps {
+                sh 'docker build -t nodeapp:v1 -f Dockerfile.node . '
+            }
+        }
     }
     
 }
