@@ -3,6 +3,10 @@ pipeline {
         label 'DevServer'
     }
 
+    environment {
+        DOCKER_HUB_CREDENTIALS='DockerImageRegistry'
+    }
+
     tools {
         nodejs 'NodeJS-234'
     }
