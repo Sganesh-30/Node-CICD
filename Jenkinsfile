@@ -22,26 +22,13 @@ pipeline {
         stage ('Installing Dependencies') {
             steps {
                sh 'npm install'
-               sh 'npm install --save-dev mocha'
-               sh 'npm install jest --save-dev'
+               sh 'npm install --save-dev mocha' 
             }
         }
-
-        stage ('Run Unit and Integration Test') {
-            parallel {
-                stage ('Unit Test') {
-                    steps {
-                        sh 'npm test'
-                    }
-                }
-
-                stage ('Integration Test') {
-                    steps {
-                        sh 'npm run test'
-                    }
-                }
+        stage ('Run Unit Test') {
+            steps {
+                sh 'npm run test'
             }
-            
         }
     }
     
